@@ -1,0 +1,68 @@
+﻿<Window x:Class="março30.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:março30"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"  >
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.3,1" StartPoint="0.6,-0.4">
+            <GradientStop Color="Purple" Offset="0"/>
+            <GradientStop Color="Red" Offset="0.6"/>
+            <GradientStop Color="Orange" Offset="1"/>
+            <GradientStop Color="Yellow" Offset="2"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock 
+            Grid.Column="0" Grid.ColumnSpan="3" FontSize="33"
+            Text="Jogo dos Dados" Foreground="White" TextAlignment="Center"/>
+        
+        <Image Name="img1" Grid.Column="0" Grid.Row="1" Source="dados/3.png"/>
+        <Image Name="img2" Grid.Column="2" Grid.Row="1" Source="dados/6.png"/>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" >
+            <Label Content="Jogador" FontSize="22" HorizontalAlignment="Center" Foreground="white" />
+            <TextBox Name="txtjogador" Margin="8" FontSize="22"/>
+            <Label Content="Montante" FontSize="22" HorizontalAlignment="Center" Foreground="white" />
+            <TextBox Name="txtmontante" Margin="8" FontSize="22"/>
+            <Button Name="rolar" Content="Rolar" FontSize="22" Margin="8,2,8,8" Click="Button_Click"/>
+
+            <Button Name="Rolarfichas" Content="Rolar fichas" FontSize="22" Margin="8,2,8,8" Click="Rolarfichas_Click" />
+
+            <Button Name="btnovo" Content="Novo Jogo" FontSize="22" Margin="8,2,8,8" Click="btnovo_Click"/>
+
+            <Button Name="Comprarfichas" Content="Comprar fichas" FontSize="22" Margin="8,2,8,8" Click="Comprarfichas_Click"/>
+
+        </StackPanel>
+
+        <TextBlock Name="visor" Grid.Column="2" Margin="12" Padding="12" 
+                   TextAlignment="Justify" TextWrapping="Wrap"
+                   Grid.Row="2" Background="White"/>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="0" Grid.Row="2"
+                    Background="Red" Margin="12">
+
+            <Label Name="relogio" Background="Yellow" Margin="2"/>
+            
+
+            <TextBox Name="txtaposta" Margin="2" TextAlignment="Center" Text="{Binding Value, ElementName=slideraposta}" Height="18"/>
+            <Slider Name="slideraposta" Maximum="1000" Minimum="100"
+                TickPlacement="BottomRight" TickFrequency="100"
+                IsSnapToTickEnabled="True" Margin="2"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
